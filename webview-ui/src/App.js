@@ -60,6 +60,6 @@ const App = () => {
                                 ? "You"
                                 : msg.from === "ai"
                                     ? "AI"
-                                    : `📎 ${msg.filename}` }), _jsx("div", { dangerouslySetInnerHTML: { __html: marked.parse(msg.text) } })] }, idx))) }), _jsxs("div", { style: { display: "flex", gap: "0.5rem" }, children: [_jsx("input", { style: { flex: 1, padding: "0.5rem" }, value: input, onChange: (e) => setInput(e.target.value), placeholder: "Ask your AI assistant... try @filename" }), _jsx("button", { onClick: sendMessage, children: "Send" })] })] }));
+                                    : `📎 ${msg.filename}` }), _jsx("div", { children: msg.from === "file" && msg.isImage ? (_jsx("img", { src: msg.text, alt: msg.filename, style: { maxWidth: "100%", maxHeight: 300 } })) : (_jsx("div", { dangerouslySetInnerHTML: { __html: marked.parse(msg.text) } })) })] }, idx))) }), _jsxs("div", { style: { display: "flex", gap: "0.5rem" }, children: [_jsx("input", { style: { flex: 1, padding: "0.5rem" }, value: input, onChange: (e) => setInput(e.target.value), placeholder: "Ask your AI assistant... try @filename" }), _jsx("button", { onClick: sendMessage, children: "Send" })] })] }));
 };
 export default App;

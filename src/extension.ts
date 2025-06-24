@@ -3,10 +3,7 @@ import * as path from 'path';
 import * as fs from 'fs';
 import fetch from 'node-fetch';
 import { Uri } from 'vscode';
-import * as dotenv from 'dotenv';
-dotenv.config({ path: path.resolve(__dirname, '../.env') });
-
-
+console.log("Loaded API KEY:", process.env.OPENROUTER_API_KEY);
 
 export function activate(context: vscode.ExtensionContext) {
   context.subscriptions.push(
