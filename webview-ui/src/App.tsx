@@ -24,6 +24,7 @@ type Message = {
   from: "user" | "ai" | "file";
   text: string;
   filename?: string;
+  isImage?: boolean;
 };
 
 const App: React.FC = () => {
@@ -95,9 +96,9 @@ const App: React.FC = () => {
                 : `📎 ${msg.filename}`}
             </strong>
             <div>
-              {msg.from === "file" && (msg as any).isImage ? (
+              {msg.from === "file" && msg.isImage ? (
                 <img
-                  src={(msg as any).text}
+                  src={msg.text}
                   alt={msg.filename}
                   style={{ maxWidth: "100%", maxHeight: 300 }}
                 />
